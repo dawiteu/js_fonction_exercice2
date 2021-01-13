@@ -35,7 +35,7 @@ let divpar2 = (number) => {
 console.log( divpar2("3") );
 
 // exo 3 
-*/
+
 
 let pass = "mdp"; 
 
@@ -59,4 +59,93 @@ if(check.length > 0){
     checkLogIn(check);
 }
 
+*/
 
+// exo 4 
+
+let classeCoding16 = []; 
+console.log(classeCoding16); 
+
+let addClass = (eleve) => {
+    if(eleve.length > 0){
+        classeCoding16.push(eleve); 
+        return `${eleve} arrive en classe // tab:`+classeCoding16; 
+    }else{
+        return "error: vide"; 
+    } 
+}
+
+let delClass = (eleve) => { 
+    if(eleve.length > 0){
+        if(classeCoding16.includes(eleve)){
+            console.log(classeCoding16.indexOf(eleve));
+            classeCoding16.splice( classeCoding16.indexOf(eleve), 1); 
+            return `${eleve} sort de la classe // tab:`+classeCoding16;   
+        }else{
+            return "pas de match dans la classe!"+classeCoding16; 
+        }
+    }else{
+        return "error: vide"; 
+    }
+}
+
+let choix; 
+let pers; 
+
+let choixpossibles = [1,2, 3, 4]; 
+
+function init(){
+    choix = prompt("Fais un choix: \n [ 1 ] pour ajouter une personne.\n [ 2 ] pour supprimer une personne. \n [ 3 ] pour afficher le tableau. \n [ 4 ] pour quitter ");
+    //alert(choix, typeof choix);
+    switch(choix){
+            case "1":
+                pers = prompt("Entre le nom de la personne a ajouter"); 
+                if(!classeCoding16.includes(pers)){
+                    addClass(pers);
+                }else{
+                    alert("La personne est deja presente!!");
+                }
+                init(); 
+            break;
+            case "2":
+                if(classeCoding16.length != 0){
+                    pers = prompt("Entre le nom de la personne a SUPPRIMER"); 
+                    // pour le del on check dirrectement dans l'autre fonction s'il est present dans le tab []; 
+                    delClass(pers);
+                    init();  
+                }else{
+                    alert("erreur. le tab est vide!!");     
+                    init();
+                }
+            break;
+            case "3":
+                alert(classeCoding16);
+                console.log(classeCoding16);
+                init();
+            break;
+            case "4":
+                alert(":Ok je sors:");
+            break;
+            default:
+                console.log(choix, typeof choix);
+                alert('erreur',choix, typeof choix); 
+                init();
+            break;
+        }
+}
+
+
+
+/*
+console.log( addClass("dawid") );
+console.log( addClass("ayhan") );
+
+console.log( addClass("malo") );
+
+console.log( delClass("ayhan") );
+
+*/
+
+init();
+
+console.log(classeCoding16); 
