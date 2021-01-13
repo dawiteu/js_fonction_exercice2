@@ -102,6 +102,7 @@ function init(){
                 pers = prompt("Entre le nom de la personne a ajouter"); 
                 if(!classeCoding16.includes(pers)){
                     addClass(pers);
+                    alert(`${pers} a bien ete ajouter!`); 
                 }else{
                     alert("La personne est deja presente!!");
                 }
@@ -111,7 +112,12 @@ function init(){
                 if(classeCoding16.length != 0){
                     pers = prompt("Entre le nom de la personne a SUPPRIMER"); 
                     // pour le del on check dirrectement dans l'autre fonction s'il est present dans le tab []; 
-                    delClass(pers);
+                    let con = confirm(`Confirmez vous la suppresion de ${pers}?`); 
+                    if(con){
+                        delClass(pers);
+                    }else{
+                        alert(`${pers} n'a pas ete supp!`);
+                    }
                     init();  
                 }else{
                     alert("erreur. le tab est vide!!");     
@@ -125,6 +131,8 @@ function init(){
             break;
             case "4":
                 alert(":Ok je sors:");
+                console.log(classeCoding16); 
+                alert(classeCoding16); 
             break;
             default:
                 console.log(choix, typeof choix);
