@@ -37,30 +37,35 @@ console.log( divpar2("3") );
 // exo 3 
 
 
-let pass = "mdp"; 
 
+
+let pass = "mdp"; 
 
 let check = prompt("Entrez le mot de passe.");; 
 
 let checkLogIn = (password) => { 
-    console.log(`entre fonction ${check} - ${pass} `); 
-    if(check == pass){
-        return alert('Log-in OK!');
-    }
-    while(check != pass){
-        console.log('case false'); 
-        check = prompt("Entrez le mot de passe.");; 
-        checkLogIn(check);
+    if(password == pass){
+        return "connecté"; 
+    }else{
+        check = prompt("md ? "); 
+        return checkLogIn(check); 
     }
 }
 
-if(check.length > 0){ 
-    console.log(`echeck lenght ok `); 
-    checkLogIn(check);
+if(check.length > 0){
+    alert(checkLogIn(check));
 }
+
 
 */
 
+
+
+
+
+
+
+/*
 // exo 4 
 
 let classeCoding16 = []; 
@@ -96,7 +101,6 @@ let choixpossibles = [1,2, 3, 4];
 
 function init(){
     choix = prompt("Fais un choix: \n [ 1 ] pour ajouter une personne.\n [ 2 ] pour supprimer une personne. \n [ 3 ] pour afficher le tableau. \n [ 4 ] pour quitter ");
-    //alert(choix, typeof choix);
     switch(choix){
             case "1":
                 pers = prompt("Entre le nom de la personne a ajouter"); 
@@ -136,24 +140,13 @@ function init(){
             break;
             default:
                 console.log(choix, typeof choix);
-                alert('erreur',choix, typeof choix); 
+                alert('erreur'); 
                 init();
             break;
         }
 }
 
-
-
-/*
-console.log( addClass("dawid") );
-console.log( addClass("ayhan") );
-
-console.log( addClass("malo") );
-
-console.log( delClass("ayhan") );
-
-*/
-
 init();
 
-console.log(classeCoding16); 
+
+*/
